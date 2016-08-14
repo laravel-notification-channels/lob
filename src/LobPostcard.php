@@ -128,12 +128,12 @@ class LobPostcard
      */
     public function toArray()
     {
-        return [
+        return array_filter([
             'to' => $this->toAddress,
             'from' => $this->fromAddress,
             'front' => $this->front,
             'message' => $this->message,
             'size' => $this->size,
-        ];
+        ]);
     }
 }
