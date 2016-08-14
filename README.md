@@ -62,7 +62,7 @@ You must install the service provider:
 
 Now you can use the channel in your `via()` method inside the notification:
 
-``` php
+```php
 use NotificationChannels\Lob\LobChannel;
 use NotificationChannels\Lob\LobPostcard;
 use NotificationChannels\Lob\LobAddress;
