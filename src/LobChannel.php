@@ -34,9 +34,10 @@ class LobChannel
 
         $messageContent = $message->toArray();
 
-        if ($address = $notifiable->routeNotificationFor('Lob') && ! isset($messageContent['to'])) {
+        if (($address = $notifiable->routeNotificationFor('Lob')) && ! isset($messageContent['to'])) {
             $messageContent['to'] = $address;
         }
+
 
         $this->lob->{$message->type}()->create($messageContent);
     }

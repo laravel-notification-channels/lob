@@ -42,15 +42,35 @@ class ChannelTest extends PHPUnit_Framework_TestCase
 
         $this->channel->send($this->notifiable, $this->notification);
     }
+
+    /** @test */
+    public function it_can_send_a_notification_with_default_to_address()
+    {
+        $notification = new TestNotificationWithToAddress;
+
+        $message = $notification->toLobPostcard($this->notifiable);
+
+        $data = $message->toArray();
+
+        $this->lobClient->shouldReceive('postcards')->andReturn($postcard = Mockery::mock(Postcards::class));
+
+        $expectedData = $data;
+
+        $expectedData['to'] = 'address_default_id';
+
+        $postcard->shouldReceive('create')->with($expectedData);
+
+        $this->channel->send($this->notifiable, $notification);
+    }
 }
 
 class TestNotifiable
 {
     use Notifiable;
 
-    public function routeNotificationForPusherPushNotifications()
+    public function routeNotificationForLob()
     {
-        return 'interest_name';
+        return 'address_default_id';
     }
 }
 
@@ -60,6 +80,16 @@ class TestNotification extends Notification
     {
         return LobPostcard::create()
             ->toAddress('address_id')
+            ->front('http://image.site/image.png')
+            ->message('test');
+    }
+}
+
+class TestNotificationWithToAddress extends Notification
+{
+    public function toLobPostcard($notifiable)
+    {
+        return LobPostcard::create()
             ->front('http://image.site/image.png')
             ->message('test');
     }
