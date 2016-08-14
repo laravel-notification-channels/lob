@@ -78,7 +78,7 @@ class AccountApproved extends Notification
     public function toLobPostcard($notifiable)
     {
         return LobPostcard::create()
-            ->to(
+            ->toAddress(
                 LobAddress::create('300 BOYLSTON AVE E')
                     ->name('John Smith')
                     ->city('SEATTLE')
@@ -93,8 +93,8 @@ class AccountApproved extends Notification
 
 ### Available Postcard methods
 
-- `from()` Address of the sender.
-- `to()` Address of teh receiver.
+- `fromAddress()` Address of the sender.
+- `toAddress()` Address of teh receiver.
 - `county()` Set the country. `US` is default.
 - `city()` required if city is `US`.
 - `state()` required if city is `US`.
