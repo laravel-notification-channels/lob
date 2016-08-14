@@ -95,7 +95,7 @@ class AccountApproved extends Notification
 
 - `fromAddress()` Address of the sender.
 - `toAddress()` Address of teh receiver.
-- `county()` Set the country. `US` is default.
+- `country()` Set the country. `US` is default.
 - `city()` required if city is `US`.
 - `state()` required if city is `US`.
 - `zip()` required if city is `US`.
