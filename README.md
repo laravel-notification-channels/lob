@@ -1,24 +1,20 @@
-Use this repo as a skeleton for your new channel, once you're done please submit a Pull Request on [this repo](https://github.com/laravel-notification-channels/new-channels) with all the files.
+# Lob.com notifications channel for Laravel 5.3 [WIP]
 
-Here's the latest documentation on Laravel 5.3 Notifications System: 
-
-https://laravel.com/docs/master/notifications
-
-# A Boilerplate repo for contributions
-
-This package makes it easy to send notifications using [:service_name](link to service) with Laravel 5.3.
-
-**Note:** Replace ```:channel_namespace``` ```:service_name``` ```:author_name``` ```:author_username``` ```:author_website``` ```:author_email``` ```:package_name``` ```:package_description``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md), [composer.json](composer.json) and other files, then delete this line.
-**Tip:** Use "Find in Path/Files" in your code editor to find these keywords within the package directory and replace all occurences with your specified term.
-
-This is where your description should go. Add a little code example so build can understand real quick how the package can be used. Try and limit it to a paragraph or two.
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/lob.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/lob)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Build Status](https://img.shields.io/travis/laravel-notification-channels/lob/master.svg?style=flat-square)](https://travis-ci.org/laravel-notification-channels/lob)
+[![StyleCI](https://styleci.io/repos/65379321/shield)](https://styleci.io/repos/65379321)
+[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/9015691f-130d-4fca-8710-72a010abc684.svg?style=flat-square)](https://insight.sensiolabs.com/projects/9015691f-130d-4fca-8710-72a010abc684)
+[![Quality Score](https://img.shields.io/scrutinizer/g/laravel-notification-channels/lob.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/lob)
+[![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/lob.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/lob)
 
 
+This package makes it easy to send notifications using [Lob.com](https://lob.com/) with Laravel 5.3.
 
 ## Contents
 
 - [Installation](#installation)
-	- [Setting up the :service_name service](#setting-up-the-:service_name-service)
+	- [Setting up the lob.com](#setting-up-lob)
 - [Usage](#usage)
 	- [Available Message methods](#available-message-methods)
 - [Changelog](#changelog)
@@ -31,19 +27,79 @@ This is where your description should go. Add a little code example so build can
 
 ## Installation
 
-Please also include the steps for any third-party service setup that's required for this package.
+You can install the package via composer:
 
-### Setting up the :service_name service
+``` bash
+composer require laravel-notification-channels/lob
+```
 
-Optionally include a few steps how users can set up the service.
+You must install the service provider:
+
+```php
+// config/app.php
+'providers' => [
+    ...
+    NotificationChannels\OneSignal\LobServiceProvider::class,
+],
+```
+
+### Setting up lob
+
+- Register a new account on [Lob.com](https://lob.com)
+- Check for [you API keys](https://dashboard.lob.com/#/settings/keys)
+- Finally add your API key to your `config/services.php`
+
+```php
+// config/services.php
+...
+'lob' => [
+    'api_key' => env('LOB_API_KEY'),
+],
+...
+```
 
 ## Usage
 
-Some code examples, make it clear how to use the package
+Now you can use the channel in your `via()` method inside the notification:
 
-### Available methods
+``` php
+use NotificationChannels\Lob\LobChannel;
+use NotificationChannels\Lob\LobPostcard;
+use Illuminate\Notifications\Notification;
 
-A list of all available options
+class AccountApproved extends Notification
+{
+    public function via($notifiable)
+    {
+        return [LobChannel::class];
+    }
+
+    public function toLobPostcard($notifiable)
+    {
+        return LobPostcard::create()
+            ->to(
+                LobAddress::create('300 BOYLSTON AVE E')
+                    ->name('John Smith')
+                    ->city('SEATTLE')
+                    ->state('WA')
+                    ->zip('98002');
+            )
+            ->front('https://path.to/my/image/postcardfront.png')
+            ->message('Wishing you a wonderful weekend!');
+    }
+}
+```
+
+### Available Postcard methods
+
+- `from()` Address of the sender.
+- `to()` Address of teh receiver.
+- `county()` Set the country. `US` is default.
+- `city()` required if city is `US`.
+- `state()` required if city is `US`.
+- `zip()` required if city is `US`.
+- `front()` A 4.25"x6.25" or 6.25"x11.25" image to use as the front of the postcard.
+- `message()` The message at the back of the card.
 
 ## Changelog
 
@@ -65,7 +121,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [Mohamed Said](https://github.com/themsaid)
 - [All Contributors](../../contributors)
 
 ## License

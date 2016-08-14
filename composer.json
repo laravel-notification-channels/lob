@@ -5,9 +5,9 @@
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": ":author_website",
+            "name": "Mohamed Said",
+            "email": "themsaid@gmail.com",
+            "homepage": "http://themsaid.com",
             "role": "Developer"
         }
     ],
@@ -15,7 +15,7 @@
         "php": ">=5.6.4",
         "illuminate/notifications": "^5.3@dev",
         "illuminate/support": "^5.3@dev",
-        "illuminate/events": "^5.3@dev"
+        "lob/lob-php": "^1.6"
     },
     "require-dev": {
         "mockery/mockery": "^0.9.5",
@@ -23,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "NotificationChannels\\:channel_namespace\\": "src"
+            "NotificationChannels\\Lob\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NotificationChannels\\:channel_namespace\\Test\\": "tests"
+            "NotificationChannels\\Lob\\Test\\": "tests"
         }
     },
     "config": {
