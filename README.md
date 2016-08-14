@@ -65,6 +65,7 @@ Now you can use the channel in your `via()` method inside the notification:
 ``` php
 use NotificationChannels\Lob\LobChannel;
 use NotificationChannels\Lob\LobPostcard;
+use NotificationChannels\Lob\LobAddress;
 use Illuminate\Notifications\Notification;
 
 class AccountApproved extends Notification
