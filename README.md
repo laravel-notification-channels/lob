@@ -6,6 +6,7 @@
 [![StyleCI](https://styleci.io/repos/65659860/shield)](https://styleci.io/repos/65659860)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/d6b5e386-7830-4623-afd4-2ee6a6eb65a1.svg?style=flat-square)](https://insight.sensiolabs.com/projects/d6b5e386-7830-4623-afd4-2ee6a6eb65a1)
 [![Quality Score](https://img.shields.io/scrutinizer/g/laravel-notification-channels/lob.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/lob)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/laravel-notification-channels/lob/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/lob/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/lob.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/lob)
 
 
