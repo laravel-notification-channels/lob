@@ -1,6 +1,6 @@
 {
     "name": "laravel-notification-channels/lob",
-    "description": ":package_description",
+    "description": "Lob.com notifications channel for Laravel 5.3",
     "homepage": "https://github.com/laravel-notification-channels/lob",
     "license": "MIT",
     "authors": [
