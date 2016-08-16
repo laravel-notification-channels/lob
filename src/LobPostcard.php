@@ -19,7 +19,7 @@ class LobPostcard
     /** @var string */
     protected $message;
 
-    /**  @var string */
+    /** @var string */
     protected $size = '4x6';
 
     /**
@@ -35,7 +35,7 @@ class LobPostcard
     /**
      * @param string $message
      */
-    public function __construct($message  = '')
+    public function __construct($message = '')
     {
         $this->message = $message;
     }
