@@ -7,11 +7,7 @@ use Lob\Lob;
 
 class LobChannel
 {
-    /**
-     * The Lob library instance.
-     *
-     * @var \Lob\Lob
-     */
+    /** @var \Lob\Lob */
     protected $lob;
 
     /**
@@ -37,7 +33,6 @@ class LobChannel
         if (($address = $notifiable->routeNotificationFor('Lob')) && ! isset($messageContent['to'])) {
             $messageContent['to'] = $address;
         }
-
 
         $this->lob->{$message->type}()->create($messageContent);
     }

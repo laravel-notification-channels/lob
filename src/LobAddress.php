@@ -4,46 +4,34 @@ namespace NotificationChannels\Lob;
 
 class LobAddress
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $line1 = 'postcards';
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $line2;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $country;
 
-    /**
-     * @var string
-     */
+    /**  @var string */
     protected $city;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $state;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $zip;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $name = 'name';
 
 
     /**
-     * @param string $body
+     * @param string $line1
+     * @param string $country
      *
      * @return static
+     *
      */
     public static function create($line1, $country = 'US')
     {
@@ -51,8 +39,8 @@ class LobAddress
     }
 
     /**
-     * @param $line1
-     * @param null $name
+     * @param string $line1
+     * @param string $country
      */
     public function __construct($line1, $country = 'US')
     {
@@ -62,67 +50,73 @@ class LobAddress
     }
 
     /**
-     * @param mixed $value
+     * @param string $line2
+     *
      * @return $this
      */
-    public function line2($value)
+    public function line2($line2)
     {
-        $this->line2 = $value;
+        $this->line2 = $line2;
 
         return $this;
     }
 
     /**
-     * @param mixed $value
+     * @param string $country
+     *
      * @return $this
      */
-    public function country($value)
+    public function country($country)
     {
-        $this->country = $value;
+        $this->country = $country;
 
         return $this;
     }
 
     /**
-     * @param mixed $value
+     * @param string $city
+     *
      * @return $this
      */
-    public function city($value)
+    public function city($city)
     {
-        $this->city = $value;
+        $this->city = $city;
 
         return $this;
     }
 
     /**
-     * @param mixed $value
+     * @param string $state
+     *
      * @return $this
      */
-    public function state($value)
+    public function state($state)
     {
-        $this->state = $value;
+        $this->state = $state;
 
         return $this;
     }
 
     /**
-     * @param mixed $value
+     * @param string $zip
+     *
      * @return $this
      */
-    public function zip($value)
+    public function zip($zip)
     {
-        $this->zip = $value;
+        $this->zip = $zip;
 
         return $this;
     }
 
     /**
-     * @param mixed $value
+     * @param string $name
+     *
      * @return $this
      */
-    public function name($value)
+    public function name($name)
     {
-        $this->name = $value;
+        $this->name = $name;
 
         return $this;
     }
@@ -134,31 +128,14 @@ class LobAddress
      */
     public function toArray()
     {
-        $output = [
+        return array_filter([
             'address_line1' => $this->line1,
             'address_country' => $this->country,
-        ];
-
-        if ($this->line2) {
-            $output['address_line2'] = $this->line2;
-        }
-
-        if ($this->city) {
-            $output['address_city'] = $this->city;
-        }
-
-        if ($this->state) {
-            $output['address_state'] = $this->state;
-        }
-
-        if ($this->zip) {
-            $output['address_zip'] = $this->zip;
-        }
-
-        if ($this->name) {
-            $output['name'] = $this->name;
-        }
-
-        return $output;
+            'address_line2' => $this->line2,
+            'address_city' => $this->city,
+            'address_state' => $this->state,
+            'address_zip' => $this->zip,
+            'name' => $this->name,
+        ]);
     }
 }

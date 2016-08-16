@@ -13,8 +13,20 @@ use PHPUnit_Framework_TestCase;
 
 class ChannelTest extends PHPUnit_Framework_TestCase
 {
+    /** @var  \Lob\Lob|Mockery\Mock */
+    protected $lobClient;
+
+    /** @var \NotificationChannels\Lob\LobChannel  */
+    protected $channel;
+
+
+    protected $notification;
+
+
     public function setUp()
     {
+        parent::setUp();
+
         $this->lobClient = Mockery::mock(Lob::class);
 
         $this->channel = new LobChannel($this->lobClient);

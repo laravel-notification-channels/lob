@@ -4,48 +4,45 @@ namespace NotificationChannels\Lob;
 
 class LobPostcard
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public $type = 'postcards';
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     protected $fromAddress = null;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     protected $toAddress = null;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $front;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $message;
 
-    /**
-     * @var string
-     */
+    /**  @var string */
     protected $size = '4x6';
 
     /**
-     * @param string $body
+     * @param string $message
      *
      * @return static
      */
-    public static function create()
+    public static function create($message = '')
     {
-        return new static();
+        return new static($message);
+    }
+
+    /**
+     * @param string $message
+     */
+    public function __construct($message  = '')
+    {
+        $this->message = $message;
     }
 
     /**
      * @param string|LobAddress $value
+     *
      * @return $this
      */
     public function fromAddress($value)
@@ -57,6 +54,7 @@ class LobPostcard
 
     /**
      * @param string|LobAddress $value
+     *
      * @return $this
      */
     public function toAddress($value)
@@ -67,40 +65,42 @@ class LobPostcard
     }
 
     /**
-     * @param mixed $value
+     * @param mixed $front
+     *
      * @return $this
      */
-    public function front($value)
+    public function front($front)
     {
-        $this->front = $value;
+        $this->front = $front;
 
         return $this;
     }
 
     /**
-     * @param mixed $value
+     * @param string $message
+     *
      * @return $this
      */
-    public function message($value)
+    public function message($message)
     {
-        $this->message = $value;
+        $this->message = $message;
 
         return $this;
     }
 
     /**
-     * @param mixed $value
+     * @param string $size
+     *
      * @return $this
      */
-    public function size($value)
+    public function size($size)
     {
-        $this->size = $value;
+        $this->size = $size;
 
         return $this;
     }
 
     /**
-     * @param mixed $value
      * @return $this
      */
     public function size4x6()
@@ -111,7 +111,6 @@ class LobPostcard
     }
 
     /**
-     * @param mixed $value
      * @return $this
      */
     public function size6x11()
