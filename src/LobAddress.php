@@ -13,7 +13,7 @@ class LobAddress
     /** @var string */
     protected $country;
 
-    /**  @var string */
+    /** @var string */
     protected $city;
 
     /** @var string */
@@ -25,13 +25,11 @@ class LobAddress
     /** @var string */
     protected $name = 'name';
 
-
     /**
      * @param string $line1
      * @param string $country
      *
      * @return static
-     *
      */
     public static function create($line1, $country = 'US')
     {
