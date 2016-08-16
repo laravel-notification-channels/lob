@@ -19,8 +19,11 @@ class ChannelTest extends PHPUnit_Framework_TestCase
     /** @var \NotificationChannels\Lob\LobChannel  */
     protected $channel;
 
-
+    /** @var \NotificationChannels\Lob\Test\TestNotification */
     protected $notification;
+
+    /** @var mixed */
+    protected $notifiable;
 
 
     public function setUp()
