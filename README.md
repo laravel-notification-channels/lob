@@ -1,4 +1,4 @@
-# Lob.com notifications channel for Laravel 5.3 [WIP]
+# Lob.com notifications channel for Laravel 5.3
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/lob.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/lob)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
