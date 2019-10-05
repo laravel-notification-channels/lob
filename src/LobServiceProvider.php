@@ -2,8 +2,8 @@
 
 namespace NotificationChannels\Lob;
 
-use Illuminate\Support\ServiceProvider;
 use Lob\Lob;
+use Illuminate\Support\ServiceProvider;
 
 class LobServiceProvider extends ServiceProvider
 {
