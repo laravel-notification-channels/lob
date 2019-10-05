@@ -2,16 +2,16 @@
 
 namespace NotificationChannels\Lob\Test;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Notifications\Notification;
 use Lob\Lob;
-use Lob\Resource\Postcards;
 use Mockery;
+use Lob\Resource\Postcards;
+use PHPUnit\Framework\TestCase;
+use Illuminate\Notifications\Notifiable;
 use NotificationChannels\Lob\LobChannel;
 use NotificationChannels\Lob\LobPostcard;
-use PHPUnit_Framework_TestCase;
+use Illuminate\Notifications\Notification;
 
-class ChannelTest extends PHPUnit_Framework_TestCase
+class ChannelTest extends TestCase
 {
     /** @var \Lob\Lob|Mockery\Mock */
     protected $lobClient;
@@ -25,7 +25,7 @@ class ChannelTest extends PHPUnit_Framework_TestCase
     /** @var mixed */
     protected $notifiable;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -36,11 +36,6 @@ class ChannelTest extends PHPUnit_Framework_TestCase
         $this->notification = new TestNotification;
 
         $this->notifiable = new TestNotifiable;
-    }
-
-    public function tearDown()
-    {
-        parent::tearDown();
     }
 
     /** @test */

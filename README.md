@@ -1,4 +1,4 @@
-# Lob.com notifications channel for Laravel 5.3
+# Lob.com notifications channel for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/lob.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/lob)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -10,7 +10,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/lob.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/lob)
 
 
-This package makes it easy to send notifications using [Lob.com](https://lob.com/) with Laravel 5.3.
+This package makes it easy to send notifications using [Lob.com](https://lob.com/) with Laravel 5.5+ & 6.0.
 
 ## Contents
 
