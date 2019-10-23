@@ -97,9 +97,9 @@ class AccountApproved extends Notification
 - `fromAddress()` Address of the sender.
 - `toAddress()` Address of teh receiver.
 - `country()` Set the country. `US` is default.
-- `city()` required if city is `US`.
-- `state()` required if city is `US`.
-- `zip()` required if city is `US`.
+- `city()` required if country is `US`.
+- `state()` required if country is `US`.
+- `zip()` required if country is `US`.
 - `front()` A 4.25"x6.25" or 6.25"x11.25" image to use as the front of the postcard.
 - `message()` The message at the back of the card.
 
