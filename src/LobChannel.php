@@ -2,8 +2,8 @@
 
 namespace NotificationChannels\Lob;
 
-use Lob\Lob;
 use Illuminate\Notifications\Notification;
+use Lob\Lob;
 
 class LobChannel
 {
