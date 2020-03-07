@@ -10,7 +10,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel-notification-channels/lob.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/lob)
 
 
-This package makes it easy to send notifications using [Lob.com](https://lob.com/) with Laravel 5.5+ & 6.0.
+This package makes it easy to send notifications using [Lob.com](https://lob.com/) with Laravel 5.5, 6.x and 7.x
 
 ## Contents
 
