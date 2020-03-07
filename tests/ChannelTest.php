@@ -2,14 +2,14 @@
 
 namespace NotificationChannels\Lob\Test;
 
-use Lob\Lob;
-use Mockery;
-use Lob\Resource\Postcards;
-use PHPUnit\Framework\TestCase;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Notifications\Notification;
+use Lob\Lob;
+use Lob\Resource\Postcards;
+use Mockery;
 use NotificationChannels\Lob\LobChannel;
 use NotificationChannels\Lob\LobPostcard;
-use Illuminate\Notifications\Notification;
+use PHPUnit\Framework\TestCase;
 
 class ChannelTest extends TestCase
 {
