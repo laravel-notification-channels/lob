@@ -13,9 +13,9 @@
     ],
     "require": {
         "php": ">=7.2.5",
-        "illuminate/notifications": "~5.5 || ~6.0 || ~7.0",
-        "illuminate/support": "~5.5 || ~6.0 || ~7.0",
-        "illuminate/queue": "~5.5 || ~6.0 || ~7.0",
+        "illuminate/notifications": "~5.5 || ~6.0 || ~7.0 || ~8.0",
+        "illuminate/support": "~5.5 || ~6.0 || ~7.0 || ~8.0",
+        "illuminate/queue": "~5.5 || ~6.0 || ~7.0 || ~8.0",
         "lob/lob-php": "^3.0"
     },
     "require-dev": {
